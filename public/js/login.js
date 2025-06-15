@@ -2,6 +2,12 @@
 import axios from 'axios';
 import { showAlert } from './alert';
 
+// Determine API base URL dynamically
+const baseURL =
+  window.location.hostname === 'localhost'
+    ? 'http://127.0.0.1:8000'
+    : 'https://natours-r3qu.onrender.com';
+
 export const signup = async (
   name,
   email,
@@ -11,7 +17,7 @@ export const signup = async (
   try {
     const res = await axios({
       method: 'POST',
-      url: '/api/v1/users/signup',
+      url: `${baseURL}/api/v1/users/signup`,
       data: {
         name,
         email,
@@ -39,7 +45,7 @@ export const login = async (email, password) => {
   try {
     const res = await axios({
       method: 'POST',
-      url: '/api/v1/users/login',
+      url: `${baseURL}/api/v1/users/login`,
       data: {
         email,
         password,
@@ -63,11 +69,6 @@ export const login = async (email, password) => {
 
 export const logout = async () => {
   try {
-    const baseURL =
-      window.location.hostname === 'localhost'
-        ? 'http://127.0.0.1:8000'
-        : 'https://natours-r3qu.onrender.com';
-
     const res = await axios({
       method: 'GET',
       url: `${baseURL}/api/v1/users/logout`,
