@@ -21,10 +21,7 @@ const DB = process.env.DATABASE.replace(
 
 // Connect to MongoDB
 mongoose
-  .connect(DB, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(DB, {})
   .then(() =>
     console.log('MongoDB connected successfully'),
   );
