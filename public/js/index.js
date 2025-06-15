@@ -68,7 +68,6 @@ if (userDataForm)
       'photo',
       document.getElementById('photo').files[0],
     );
-    console.log(form);
 
     updateSettings(form, 'data');
   });
