@@ -1,0 +1,59 @@
+{
+  "name": "natours",
+  "version": "1.0.0",
+  "description": "Learning node, express and mongoDB",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "start:prod": "cross-env NODE_ENV=production nodemon server.js",
+    "debug": "ndb server.js",
+    "watch:js": "parcel watch ./public/js/index.js --out-dir ./public/js --out-file bundle.js",
+    "build:js": "parcel build ./public/js/index.js --out-dir ./public/js --out-file bundle.js"
+  },
+  "author": "Shore Koya",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/polyfill": "^7.12.1",
+    "axios": "^1.9.0",
+    "bcryptjs": "^3.0.2",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^16.5.0",
+    "express": "^4.21.2",
+    "express-mongo-sanitize": "^2.2.0",
+    "express-rate-limit": "^7.5.0",
+    "helmet": "^8.1.0",
+    "hpp": "^0.2.3",
+    "html-to-text": "^9.0.5",
+    "jsonwebtoken": "^9.0.2",
+    "leaflet": "^1.9.4",
+    "mongoose": "^8.15.1",
+    "morgan": "^1.10.0",
+    "multer": "^2.0.1",
+    "nodemailer": "^7.0.3",
+    "nodemailer-brevo-transport": "^2.2.0",
+    "pug": "^3.0.3",
+    "sharp": "^0.34.2",
+    "slugify": "^1.6.6",
+    "stripe": "^7.63.1",
+    "validator": "^13.15.0",
+    "xss-clean": "^0.1.4"
+  },
+  "devDependencies": {
+    "@types/stripe": "^8.0.416",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.57.1",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^5.4.0",
+    "eslint-plugin-react": "^7.37.5",
+    "parcel": "^2.15.2",
+    "parcel-bundler": "^1.12.5",
+    "prettier": "^3.5.3"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  }
+}
