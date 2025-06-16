@@ -1,5 +1,5 @@
 /* eslint-disable */
-function displayMap(locations) {
+export const displayMap = (locations) => {
   const map = L.map('map', { zoomControl: false });
 
   L.tileLayer(
@@ -7,16 +7,16 @@ function displayMap(locations) {
     {
       attribution:
         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-      crossOrigin: '',
     },
   ).addTo(map);
 
   const points = [];
 
   locations.forEach((loc) => {
-    const [lng, lat] = loc.coordinates;
-    points.push([lat, lng]);
-    L.marker([lat, lng])
+    const coords = [loc.coordinates[1], loc.coordinates[0]];
+    points.push(coords);
+
+    L.marker(coords)
       .addTo(map)
       .bindPopup(
         `<p>Day ${loc.day}: ${loc.description}</p>`,
@@ -30,7 +30,4 @@ function displayMap(locations) {
   const bounds = L.latLngBounds(points).pad(0.5);
   map.fitBounds(bounds);
   map.scrollWheelZoom.disable();
-}
-
-// Attach to window so you can access it globally
-window.displayMap = displayMap;
+};
