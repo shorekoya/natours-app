@@ -10,17 +10,17 @@ html
             title Natours | #{title}
 
         
-    body
-    // HEADER
-    include _header
+    body(data-alert=`${alert ? alert : ''}`)
+        // HEADER
+        include _header
   
-    // CONTENT
-    block content
-        h1 This is a placeholder heading
-        
-        
-    // FOOTER
-    include _footer
+        // CONTENT
+        block content
+            h1 This is a placeholder heading
+            
+            
+        // FOOTER
+        include _footer
     
 
     //- script(src='/js/axios.min.js')
