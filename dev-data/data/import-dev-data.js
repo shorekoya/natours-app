@@ -1,6 +1,5 @@
 const fs = require('fs');
 const dotenv = require('dotenv');
-
 const mongoose = require('mongoose');
 
 const Tour = require('../../models/tourModel');
@@ -9,14 +8,16 @@ const Review = require('../../models/reviewModel');
 
 dotenv.config({ path: './config.env' });
 
+const DB = process.env.MONGO_URI.replace(
+  '<PASSWORD>',
+  process.env.DATABASE_PASSWORD,
+);
+
 mongoose
-  .connect(
-    'mongodb+srv://shore:koya2316@ac-qri49qw.uzoqatb.mongodb.net/natours?retryWrites=true&w=majority',
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    },
-  )
+  .connect(DB, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => console.log('MongoDB connected successfully'))
   .catch((err) =>
     console.error('MongoDB connection error:', err),
@@ -64,4 +65,5 @@ if (process.argv[2] === '--import') {
 } else if (process.argv[2] === '--delete') {
   deleteData();
 }
+
 console.log(process.argv);
